@@ -3,86 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Calm Apartment — Rental-Friendly Organization</title>
-<meta name="description" content="Home organization ideas for renters. No-damage solutions, small spaces, calm aesthetic.">
+<title>The Calm Apartment — Rental-Friendly Home Organization</title>
+<meta name="description" content="No-damage, no-drill home organization ideas for renters. Small-space solutions, calm aesthetic, landlord-approved.">
+<meta property="og:title" content="The Calm Apartment">
+<meta property="og:description" content="Rental-friendly organization. No drills, no damage, no deposit drama.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23A8B5A0'/%3E%3Ctext x='50' y='62' font-family='serif' font-size='48' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     --soft-white: #F5EFE6;
     --warm-beige: #D6CFC4;
     --sage: #A8B5A0;
+    --sage-dark: #869485;
     --terracotta: #C28B7C;
+    --ink: #2a2522;
+    --ink-soft: #5a504a;
+    --ink-faint: #9a8f88;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     background: var(--soft-white);
-    color: #3a3532;
+    color: var(--ink);
     line-height: 1.7;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
   }
-  main {
-    max-width: 640px;
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--sage-dark); }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245, 239, 230, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    padding: 1rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  nav .brand {
+    font-weight: 500; letter-spacing: -0.01em; font-size: 1.05rem;
+    color: var(--ink); display: flex; align-items: center; gap: 0.5rem;
+  }
+  nav .brand .dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--sage); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; font-weight: 400;
+  }
+  nav ul { list-style: none; display: flex; gap: 1.5rem; }
+  nav ul a { color: var(--ink-soft); font-size: 0.92rem; }
+  nav ul a:hover { color: var(--terracotta); }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    max-width: 760px; margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 300; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+  .hero .tagline {
+    color: var(--terracotta);
+    font-size: 1.15rem; font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  .hero p.lead {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 540px; margin: 0 auto 2rem;
+  }
+  .hero .cta {
+    display: inline-block;
+    background: var(--sage); color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    font-size: 0.95rem; letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .hero .cta:hover { background: var(--sage-dark); color: white; }
+
+  /* Sections */
+  section {
+    padding: 4rem 2rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  section h2 {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 400; letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
     text-align: center;
   }
-  .logo {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem;
-    background: var(--sage);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-    font-weight: 300;
+  section .section-sub {
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 580px; margin: 0 auto 3rem;
+    font-size: 1rem;
   }
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-    color: #2a2522;
+
+  /* Rooms grid */
+  .rooms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
   }
-  .tagline {
-    color: var(--terracotta);
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 2rem;
+  .room {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  p {
-    color: #5a504a;
-    margin-bottom: 1rem;
+  .room:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(42, 37, 34, 0.06);
   }
-  .coming-soon {
-    display: inline-block;
+  .room .icon {
+    width: 56px; height: 56px; margin: 0 auto 1rem;
     background: var(--warm-beige);
-    padding: 0.5rem 1.5rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    margin-top: 2rem;
-    color: #3a3532;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
   }
+  .room h3 {
+    font-size: 1.1rem; font-weight: 500;
+    margin-bottom: 0.5rem; color: var(--ink);
+  }
+  .room p {
+    color: var(--ink-soft); font-size: 0.92rem;
+    margin-bottom: 1rem;
+  }
+  .room .tag {
+    display: inline-block;
+    background: var(--soft-white);
+    color: var(--ink-faint);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  /* Promise / principles */
+  .promise {
+    background: var(--warm-beige);
+    padding: 4rem 2rem;
+  }
+  .promise-inner {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .principle {
+    text-align: center;
+  }
+  .principle .num {
+    display: block;
+    font-family: serif; font-size: 2rem;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+  .principle h4 {
+    font-size: 1rem; font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .principle p {
+    color: var(--ink-soft); font-size: 0.9rem;
+  }
+
+  /* About */
+  .about-wrap {
+    max-width: 640px; margin: 0 auto; text-align: center;
+  }
+  .about-wrap p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  /* Contact */
+  .contact {
+    text-align: center;
+    background: var(--soft-white);
+  }
+  .contact .pinterest-link {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  .contact .pinterest-link:hover { background: var(--terracotta); color: white; }
+
+  /* Footer */
   footer {
-    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
     font-size: 0.85rem;
-    color: #9a8f88;
+    color: var(--ink-faint);
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  footer .disclosure {
+    max-width: 640px; margin: 0 auto 1rem;
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.8rem 1.2rem; }
+    nav ul { gap: 1rem; font-size: 0.88rem; }
+    .hero { padding: 3rem 1.2rem 2.5rem; }
+    section { padding: 3rem 1.2rem; }
+    .promise { padding: 3rem 1.2rem; }
   }
 </style>
 </head>
 <body>
-<main>
-  <div class="logo">T</div>
-  <h1>The Calm Apartment</h1>
-  <p class="tagline">Rental-friendly organization · no drills, no damage</p>
-  <p>Small-space solutions for renters who want a calm, organized home without losing the deposit.</p>
-  <p>Coming soon — organized by April 2026.</p>
-  <div class="coming-soon">🪴 Launching Summer 2026</div>
-  <footer>© 2026 The Calm Apartment</footer>
+
+<nav>
+  <a href="#top" class="brand">
+    <span class="dot">T</span>
+    <span>The Calm Apartment</span>
+  </a>
+  <ul>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#promise">How</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Follow</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <div class="hero">
+    <h1>Rental-friendly organization<br>for people who like calm.</h1>
+    <p class="tagline">No drills. No damage. No deposit drama.</p>
+    <p class="lead">Small-space solutions and renter-smart ideas for making your apartment feel like a home — without losing the security deposit when you move out.</p>
+    <a href="#rooms" class="cta">Browse by room →</a>
+  </div>
+
+  <section id="rooms">
+    <h2>Start with a room</h2>
+    <p class="section-sub">Practical organization ideas designed for rentals. Everything here is reversible, non-permanent, and landlord-approved.</p>
+
+    <div class="rooms">
+      <div class="room">
+        <div class="icon">🍳</div>
+        <h3>Rental Kitchen</h3>
+        <p>Over-door spice racks, tension rod solutions, drawer organizers that fit any layout.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="room">
+        <div class="icon">🛁</div>
+        <h3>Rental Bathroom</h3>
+        <p>Adhesive hooks that actually hold, over-toilet storage, tiny counter solutions.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="room">
+        <div class="icon">🛏️</div>
+        <h3>Rental Bedroom</h3>
+        <p>Closet doublers, under-bed storage, peel-and-stick wall ideas.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="room">
+        <div class="icon">🪴</div>
+        <h3>Small Living Room</h3>
+        <p>Vertical storage, multi-purpose furniture, calm aesthetic on a tight footprint.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="room">
+        <div class="icon">📚</div>
+        <h3>Home Office Corner</h3>
+        <p>Desk organization when your desk is also your dinner table.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="room">
+        <div class="icon">🧺</div>
+        <h3>Entryway & Laundry</h3>
+        <p>Tight hallways, shared laundry rooms, no-closet entry solutions.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise" id="promise">
+    <div class="promise-inner">
+      <h2>How we pick what to recommend</h2>
+      <p class="section-sub">Every idea here passes three tests before it shows up on the blog.</p>
+
+      <div class="principles">
+        <div class="principle">
+          <span class="num">01</span>
+          <h4>Reversible</h4>
+          <p>No drilling. No permanent adhesive. Nothing that won't come off on move-out day.</p>
+        </div>
+        <div class="principle">
+          <span class="num">02</span>
+          <h4>Small-space friendly</h4>
+          <p>Works in tiny kitchens, shared bathrooms, shoebox bedrooms. Not for 3000 sq ft houses.</p>
+        </div>
+        <div class="principle">
+          <span class="num">03</span>
+          <h4>Actually looks calm</h4>
+          <p>Warm minimalist, neutral tones, nothing plastic-y. Storage that blends in, not shouts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about-wrap">
+      <p>The Calm Apartment is a home organization blog for renters — written for people who've moved six times in ten years and are tired of losing deposits over nail holes.</p>
+      <p>Every recommendation is tested against rental realities: thin walls, textured ceilings, kitchens with three cabinets, bathrooms the size of a closet. No drill, no drama.</p>
+      <p>Built with AI-assisted research and a lot of over-cared-about aesthetic choices.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Follow along</h2>
+    <p class="section-sub">The blog is still being built. Meanwhile, the Pinterest board is where new ideas get posted first.</p>
+    <a href="https://www.pinterest.com/olikahn28calmapartment/" class="pinterest-link" target="_blank" rel="noopener">Follow on Pinterest →</a>
+  </section>
+
 </main>
+
+<footer>
+  <p class="disclosure">
+    <strong>Affiliate disclosure:</strong> The Calm Apartment may earn commissions from qualifying purchases through affiliate links (Amazon Associates, ShareASale, Etsy). Recommendations are based on fit for renters, not commission rates. Prices and availability may change.
+  </p>
+  <p>© 2026 The Calm Apartment · Calm homes for people who rent them.</p>
+</footer>
+
 </body>
 </html>
